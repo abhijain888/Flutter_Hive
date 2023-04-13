@@ -5,14 +5,9 @@ import 'package:flutter_hive/bloc/cubit/tecorb_cubit.dart';
 import 'package:flutter_hive/boxes.dart';
 import 'package:flutter_hive/tecorb.dart';
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,11 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context)
-              .push(
-                MaterialPageRoute(builder: (_) => AddInfoPage()),
-              )
-              .then((value) => setState(() {}));
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => AddInfoPage()),
+          );
         },
         child: const Icon(Icons.add),
       ),
