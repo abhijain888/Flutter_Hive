@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hive/boxes.dart';
-import 'package:flutter_hive/tecorb.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hive/bloc/cubit/tecorb_cubit.dart';
 
 class AddInfoPage extends StatelessWidget {
   AddInfoPage({super.key});
@@ -30,12 +30,8 @@ class AddInfoPage extends StatelessWidget {
           const SizedBox(height: 40),
           ElevatedButton(
             onPressed: () {
-              boxTecorb.add(
-                Tecorb(
-                  name: name,
-                  tech: tech,
-                ),
-              );
+              BlocProvider.of<TecorbCubit>(context).addItem(name, tech);
+              // context.read<TecorbCubit>().addItem(name, tech);
 
               Navigator.of(context).pop();
             },
